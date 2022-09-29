@@ -6,6 +6,7 @@
     font-family: 'Laila', sans-serif;
 }
 
+    /* Sections and Headings */
 #about, #work, #contact {
     scroll-margin-top: 3.5rem;
   }
@@ -20,6 +21,7 @@ h3, h4{
     margin: 1rem;
 }
 
+    /* Buttons */
 button{
     width: fit-content;
     height: fit-content;
@@ -43,10 +45,6 @@ button:active{
     transition: 0.1s linear;
 }
 
-.mobile{
-    display: none;
-}
-
 /* Header */
 header{
     position: sticky;
@@ -58,6 +56,7 @@ header{
     display: inline-flex;
 }
 
+    /* Background and Heading*/
 .navbar{
     width: 100%;
     display: flex;
@@ -65,47 +64,45 @@ header{
     justify-content: space-between;
     padding: 1rem 2rem;
 }
-
 .navbar h1{
     text-decoration: none;
     font-size: 1.5rem;
     color: white;
 }
 
+    /* Nav Links */
 .navbar a{
     font-size: 1.3rem;
     text-decoration: none;
     color: white;
 }
-
 .navbar a:hover{
     transform: scale(1.5);
     transition: 0.5s ease-in-out;
 }
-
 .navbar a:active{
     filter:invert(1);
     transition: 0.1s;
 }
-
 nav ul{
     display: flex;
     align-content: center;
+    padding-inline-start: 0;
 }
-
 nav ul li{
     display: inline-flex;
     align-content: center;
 }
-
 nav ul li+li::before{
     content: "";
     margin: 0 1rem;
 }
-
 nav .mobile img{
     height: 1.5rem;
     filter: invert(1);
+}
+nav .mobile{
+    display: none;
 }
 
 @media only screen and (max-width:1000px){
@@ -138,32 +135,90 @@ section#banner{
     aspect-ratio: 2.5 / 1;
 }
 
-section#banner div.hello h3{
+    /* Text */
+div.hello h3{
     font-size: 1.5rem;
     margin: 2rem 0 0 5rem;
     padding: 0;
 }
-section#banner div.hello h2.jacob{
+h2.jacob{
     font-size: 7.5rem;
     margin-left: 2rem;
 }
-section#banner div.hello h2.blackburn{
+h2.blackburn{
     font-size: 7.5rem;
     margin-left: 6rem;
 }
-section#banner div.based{
-    font-size: 1.5rem;
+div.based{
     width: fit-content;
-    margin-left: 18rem;
+    margin: 0 0 5rem 18rem;
     text-align: center;
 }
+div.based h3{
+    font-size: 1.5rem;
+}
 
+    /* Special Fonts */
 #banner span.dev{
     font-family: monospace;
 }
 #banner span.doc{
     font-family: 'Cedarville Cursive', cursive;
     font-size: 2.2rem;
+}
+
+img.mobile{
+    border: 0.8rem white solid;
+    border-radius: 50%;
+    display: none;
+}
+
+@media only screen and (max-width:1250px){
+    div.hello h3{
+        font-size: 1.3rem;
+        margin: 2rem 0 0 3rem;
+    }
+    h2.jacob, h2.blackburn{
+        font-size: 6rem;
+    }
+    div.based{
+        margin: 0 0 3rem 13rem;
+    }
+    div.based h3{
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width:1000px){
+    section#banner{
+        background-position: left;
+        background-size: auto;
+        align-items: center;
+        text-align: center;
+    }
+    div.hello h3{
+        font-size: 1.2rem;
+        margin: 2rem 0 0 0;
+    }
+    h2.jacob, h2.blackburn{
+        font-size: 5rem;
+        margin-left: 0;
+    }
+    section#banner img.mobile{
+        display: block;
+        width: 18rem;
+        height: 18rem;
+        margin: 1rem;
+    }
+    div.based{
+        width: 100%;
+        margin: 0 0 5rem 0;
+    }
+}
+@media only screen and (max-width:600px){
+    h2.jacob, h2.blackburn{
+        font-size: 3rem;
+        margin-left: 0;
+    }
 }
 
 /* About */
@@ -179,11 +234,11 @@ section#about{
     background-color: black;
 }
 
+    /* Title and Profile Pic */
 #about h2{
     color: white;
     grid-area: 1 / 2 / 2 / 3;
 }
-
 img.profile{
     width: 90%;
     border: 0.8rem white solid;
@@ -193,16 +248,33 @@ img.profile{
     grid-area: 1 / 1 / 4 / 2;
 }
 
+/* Text Section */
 #about p{
+    grid-area: 2 / 2 / 3 / 3;
     font-size: 1.2rem;
     text-align: center;
     color: white;
 }
-
 span.intro, span.full, span.tldr{
     transition: opacity 2s ease;
 }
+span.full, span.tldr{
+    font-size: 0px;
+    opacity: 0;
+}
 
+    /* Buttons */
+#morebutton{
+    grid-area: 3 / 2 / 4 / 3;
+}
+#tldrbutton{
+    grid-area: 3 / 1 / 4 / 3;
+}
+#tldrbutton, br.fullbr, br.tldrbr{
+    display: none;
+}
+
+    /* Skills Display */
 #about div.skills{
     grid-area: 4 / 1 / 5 / 3;
     box-sizing: content-box;
@@ -216,21 +288,41 @@ span.intro, span.full, span.tldr{
     padding: 1.5%;
 }
 
-#morebutton{
-    grid-area: 3 / 2 / 4 / 3;
+@media only screen and (max-width:1000px){
+    section#about{
+        display: grid;
+        grid-template: repeat(3, fit-content) / 1fr;
+    }
+    #about h2{
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    #about p{
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    img.profile{
+        display: none;
+    }
+    #morebutton, #tldrbutton{
+        grid-area: 3 / 1 / 4 / 2;
+        font-size: 1rem;
+    }  
+    #about div.skills{
+        grid-area: 4 / 1 / 5 / 2;
+        padding: 1.5%;  
+    }
 }
-
-#tldrbutton{
-    grid-area: 3 / 1 / 4 / 3;
-}
-
-span.full, span.tldr{
-    font-size: 0px;
-    opacity: 0;
-}
-
-#tldrbutton, br.fullbr, br.tldrbr{
-    display: none;
+@media only screen and (max-width:600px){
+    #about h2{
+        font-size: 1.5rem;
+    }
+    #about p{
+        font-size: 1rem;
+    }
+    #about div.skills{
+        height: 2rem;
+        width: 90%;
+        padding: 5%;
+    }
 }
 
 /* Image Break */
@@ -241,6 +333,17 @@ span.full, span.tldr{
     background-size: cover;
     background-attachment: fixed;
     background-position: bottom;
+}
+
+@media only screen and (max-width:1000px){
+    #break{
+        aspect-ratio: 3 / 1;
+    }
+}
+@media only screen and (max-width:600px){
+    #break{
+        aspect-ratio: 2 / 1;
+    }
 }
 
 /* My Work */
@@ -301,7 +404,7 @@ section#work div.phaseTwo{
 section#work section.phaseItem{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 20rem;
     padding: 0.5%;
     height: 2.8rem;
     background-color: white;
@@ -344,13 +447,102 @@ section#work div.workButtons{
     width: 100%;
     justify-content: space-around;
 }
+#phaseonebutton, #phasetwobutton{
+    display: none;
+}
 
     /* Progress Colour */
 section#work section.done {
     background-color: rgb(93, 217, 93);
 }
+section#work section.inprogress {
+    background-color: orange;
+}
 img.done {
     filter: invert(74%) sepia(64%) saturate(459%) hue-rotate(63deg) brightness(91%) contrast(90%);
+}
+
+@media only screen and (max-width:1000px){
+    section#work{
+        grid-template: repeat(6, fit-content) / 1fr 1fr;
+    }
+    #phaseonebutton{
+        display: block;
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    #phasetwobutton{
+        display: block;
+        grid-area: 3 / 2 / 4 / 3;
+    }
+    section#work h3.phaseOne{
+        grid-area: 4 / 1 / 5 / 3;
+    }
+        section#work div.phaseOne{
+        grid-area: 5 / 1 / 6 / 3;
+    }
+    section#work h3.phaseTwo{
+        grid-area: 4 / 1 / 5 / 3;
+        display: none;
+    }
+    section#work div.phaseTwo{
+        grid-area: 5 / 1 / 6 / 3;
+        display: none;
+    }
+    section#work div.workButtons{
+        grid-area: 6 / 1 / 7 / 3;
+    }
+    section#work img.rightArrow{
+        display: none;
+    }
+}
+@media only screen and (max-width:850px){
+    section#work h2{
+        font-size: 2rem;
+    }
+       section#work #roadmapText{
+        font-size: 1rem;
+    }
+    section#work h3.phaseOne, section#work h3.phaseTwo{
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width:650px){
+    section#work{
+        padding: 1rem 2rem;
+    }
+    section#work h2{
+        font-size: 1.5rem;
+    }
+    #phaseonebutton, #phasetwobutton{
+        font-size: 1rem;
+        margin: 0;
+    }
+    section#work div.phaseOne, section#work div.phaseTwo{
+        height: 600px;
+        flex-direction: column;
+        width: 90%;
+    }
+}
+@media only screen and (max-width:450px){
+    section#work div.phaseOne, section#work div.phaseTwo{
+        height: 500px;
+    }
+    section#work section.phaseItem{
+        width: 17.5rem;
+        height: 2.3rem;
+        border-radius: 15px;
+    }
+    section#work section.phaseItem:hover{
+        height: 9rem;
+    }
+    section#work section.phaseItem h4{
+        font-size: 0.8rem;
+        margin: 0.5rem;
+    }
+    section#work section.phaseItem p{
+        font-size: 0.8rem;
+        margin: 0 0.5rem;
+    }
 }
 
 /* Contact */
@@ -363,12 +555,14 @@ section#contact{
     padding: 1%;
 }
 
+    /* Contact Me Text */
 #contact h3{
     color: white;
     margin: 0.5rem;
     font-size: 1.2rem;
 }
 
+    /* Contact Icons */
 #contact img{
     width: 3rem;
     border-radius: 50%;
@@ -376,20 +570,9 @@ section#contact{
     padding: 2px;
     margin: 0.5rem 1rem;
 }
-
 #contact img:hover{
     transform: scale(1.3);
     transition: 0.5s ease-in-out;
     filter:grayscale(100%);
     cursor: pointer;
-}
-
-@media only screen and (max-width:600px){
-    #contact h3{
-        font-size: 1rem;
-    }
-    #contact img{
-        width: 3rem;
-        padding: 0.2rem 0.5rem;
-    }
 }
